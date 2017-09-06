@@ -36,14 +36,14 @@ function calculateSalesTax(salesData, taxRates) {
       output[company] = {};
 
       var provinces = ["BC", "AB", "SK"];
-      for(j = 0; j < provinces.length; j++) {
+      for(var j = 0; j < provinces.length; j++) {
         if(obj.province === provinces[j]) {
           output[company]["totalSales"] = obj.sales.reduce(add, 0);
           output[company]["totalTaxes"] = output[company]["totalSales"] * taxRates[provinces[j]];
         }
       }
     } else {
-      for(j = 0; j < provinces.length; j++) {
+      for(var k = 0; k < provinces.length; k++) {
         if(obj.province === provinces[j]) {
           output[company]["totalSales"] += obj.sales.reduce(add, 0);
           var tempTot = obj.sales.reduce(add, 0);
